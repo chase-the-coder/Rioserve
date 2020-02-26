@@ -1,8 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: %i[show destroy edit update]
-  def show
-  end
-
+  before_action :set_reservation, only: %i[destroy update]
   def new
     @reservation = Reservation.new
   end
@@ -16,9 +13,6 @@ class ReservationsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
   end
 
   def update
