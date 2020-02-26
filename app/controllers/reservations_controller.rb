@@ -31,7 +31,7 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:number_of_people)
+    params.require(:reservation).permit(:number_of_people, :scheduled)
   end
 
   def set_reservation
