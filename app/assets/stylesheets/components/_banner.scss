@@ -1,0 +1,25 @@
+.home-banner {
+  // background-image: url('https://www.thebalancesmb.com/thmb/kectf9d4azgI8yVnBuoB0h2Z8zA=/3865x2174/smart/filters:no_upscale()/overhead-view-of-smiling-female-friends-sharing-lunch-in-restaurant-928010348-5b4abe8f46e0fb003712c478.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://www.thebalancesmb.com/thmb/kectf9d4azgI8yVnBuoB0h2Z8zA=/3865x2174/smart/filters:no_upscale()/overhead-view-of-smiling-female-friends-sharing-lunch-in-restaurant-928010348-5b4abe8f46e0fb003712c478.jpg');
+  background-size: cover;
+  height: 100vh;
+  color: #eee;
+  content-align: center;
+  text-align: center;
+  content-position: center;
+  padding-top: 40vh;
+  // filter: blur(1px);
+  // display: table;
+  // margin: auto;
+  // margin-top: 25vh;
+  // h1 {
+  //   // display: table-cell;
+  //   // position: relative;
+  //   vertical-align: middle;
+  //   display: inline-block;
+  // }
+}
+
+.search {
+  display: inline-block;
+}

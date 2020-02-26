@@ -1,12 +1,23 @@
-.navbar-lewagon {
+.navbar-rioserve {
   justify-content: space-between;
   background: white;
+  background-color: transparent;
+  transition: 0.5s background-color ease;
+  // color: white;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-rioserve-black {
+  background-color: $black;
+}
+
+.navbar-rioserve .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-rioserve .navbar-brand img {
   width: 40px;
+}
+
+.nav-link {
+  color: white !important;
 }
