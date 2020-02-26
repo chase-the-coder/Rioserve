@@ -5,6 +5,15 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-    @restaurants
+    @restaurant = Restaurant.new
+  end
+
+  def create
+    @restaurant = Restaurant.new(restaurant_params)
+  end
+
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :capacity, :category, :address, :price_range)
   end
 end
+
