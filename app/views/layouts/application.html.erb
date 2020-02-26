@@ -3,16 +3,53 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+
+    <title>Rioserve</title>
     <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= yield %>
-    <%= javascript_include_tag 'application' %>
+    <%= render "shared/navbar" %>
 
+    <div class="home-banner">
+      <h1>Rioserve</h1>
+      <form class="form-inline search">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+          aria-label="Search">
+      </form>
+    </div>
+
+    <div class="container justify-content-center">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam nostrum nam, nemo in ab eveniet dolorum rem ex. Esse aut dolor et, quis nihil maiores excepturi eum enim provident doloribus.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum tempore labore ipsam fuga, cumque, doloremque delectus, facilis soluta alias enim non ab voluptas quae dolorem quisquam quia illo. Repellendus, commodi!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto excepturi, voluptatem nemo autem cumque inventore? Sapiente, est repudiandae libero quo molestias, ratione ad vero accusamus labore! Odio, voluptatum, illum!</p>
+      <%= yield %>
+
+    </div>
+    <%= render "shared/footer" %>
+
+    <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
