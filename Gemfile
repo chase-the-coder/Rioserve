@@ -28,5 +28,7 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-#Authentication
+# Authentication
 gem 'devise'
+# dotenv gem
+gem 'dotenv-rails', groups: [:development, :test]
