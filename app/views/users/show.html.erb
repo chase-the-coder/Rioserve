@@ -2,7 +2,7 @@
 
 <ul>
   <% @user.reservations.each do |reservation|%>
-    <%= link_to user_restaurant_reservation_path(current_user, reservation.restaurant, reservation) do %>
+    <%= link_to reservation_path(reservation) do %>
       <li><%= reservation.scheduled %></li>
     <% end %>
   <% end %>
