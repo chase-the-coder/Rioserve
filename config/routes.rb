@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :restaurants, exept: :index do
+  resources :restaurants, except: :index do
     resources :reservations, except: :index
   end
   get 'pages/about', to: 'pages#about'
