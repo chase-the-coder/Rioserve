@@ -15,7 +15,12 @@
 
   <body style="padding-top: 70px;">
 
-    <%= yield %>
+    <%= render "/shared/navbar" %>
+
+    <div class="container justify-content-center">
+      <%= yield %>
+    </div>
+
     <%= render "shared/footer" %>
 
     <%= javascript_include_tag 'application' %>
