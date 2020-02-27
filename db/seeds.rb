@@ -1,5 +1,7 @@
 require 'faker'
 
+Restaurant.delete_all
+
 20.times do
   Restaurant.create(
     name: Faker::Movies::LordOfTheRings.character,
