@@ -20,12 +20,11 @@ class ReservationsController < ApplicationController
   end
 
   def edit
-    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def update
     if @reservation.update(reservation_params)
-      redirect_to user_path(current_user)
+      redirect_to reservation_path(@reservation)
     else
       render :edit
     end
