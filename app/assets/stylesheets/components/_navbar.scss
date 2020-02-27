@@ -1,10 +1,19 @@
 .navbar-rioserve {
   justify-content: space-between;
   background: white;
+  background-color: #1e1e1e;
+  transition: 0.5s background-color ease;
+  // color: white;
+}
+
+.navbar-rioserve-home {
+  justify-content: space-between;
+  background: white;
   background-color: transparent;
   transition: 0.5s background-color ease;
   // color: white;
 }
+
 
 .navbar-rioserve-black {
   background-color: $black;
@@ -20,4 +29,12 @@
 
 .nav-link {
   color: white !important;
+}
+
+.navbar-rioserve-home .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-rioserve-home .navbar-brand img {
+  width: 40px;
 }
