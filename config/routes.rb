@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, except: %i[index new create] do
-    resources :restaurants, except: :index
-    resources :reservations, except: :index
+    resources :restaurants, except: :index do
+      resources :reservations, except: :index
+    end
   end
   get 'pages/about', to: 'pages#about'
   get 'pages/contact', to: 'pages#contact'

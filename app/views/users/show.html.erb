@@ -1,1 +1,10 @@
+<%= render "/shared/navbar" %>
 <h1><%= @user.first_name %></h1>
+
+<ul>
+  <% @user.reservations.each do |reservation|%>
+    <%= link_to user_restaurant_reservation_path(current_user, reservation.restaurant, reservation) do %>
+      <li><%= reservation.scheduled %></li>
+    <% end %>
+  <% end %>
+</ul>

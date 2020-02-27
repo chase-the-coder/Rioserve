@@ -1,0 +1,10 @@
+<div class="container">
+  <ul>
+    <li><%= @reservation.user.first_name %></li>
+    <li><%= @reservation.restaurant.name %></li>
+    <li><%= @reservation.scheduled %></li>
+    <li><%= @reservation.number_of_people %></li>
+  </ul>
+
+  <%= link_to "edit this reservation", edit_user_restaurant_reservation_path(@reservation) %>
+</div>
