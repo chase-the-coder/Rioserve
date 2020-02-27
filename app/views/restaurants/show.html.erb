@@ -10,5 +10,5 @@
   <div class="">
     <p><%= @restaurant.description %></p>
   </div>
-  <%= link_to  %>
+  <%= link_to 'Make Reservation', new_user_restaurant_reservation_path(current_user, @restaurant), class: 'btn btn-dark' %>
 </div>
