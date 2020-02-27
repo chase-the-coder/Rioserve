@@ -1,4 +1,14 @@
 <%= render "/shared/navbar" %>
-
-<h1><%= @restaurant.name %></h1>
-<p><%= @restaurant.address %></p>
+<div class="container mt-4 text-center">
+  <h1 class=""><%= @restaurant.name %></h1>
+  <div class="d-flex justify-content-around mb-4">
+    <p>rating: <%= @restaurant.rating %></p>
+    <p>price: <%= @restaurant.price_range %></p>
+    <p>category: <%= @restaurant.category %></p>
+    <p>address: <%= @restaurant.address %></p>
+  </div>
+  <div class="">
+    <p><%= @restaurant.description %></p>
+  </div>
+  <%= link_to  %>
+</div>
