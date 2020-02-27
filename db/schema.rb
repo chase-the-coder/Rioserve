@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_204243) do
+ActiveRecord::Schema.define(version: 2020_02_26_231235) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "user_id_id"
+    t.bigint "restaurant_id_id"
+    t.datetime "scheduled"
+    t.integer "number_of_people"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id_id"], name: "index_reservations_on_restaurant_id_id"
+    t.index ["user_id_id"], name: "index_reservations_on_user_id_id"
+  end
+
   create_table "restaurants", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
@@ -39,17 +52,4 @@ ActiveRecord::Schema.define(version: 2020_02_26_204243) do
   end
 
   add_foreign_key "restaurants", "users"
-
-  enable_extension "plpgsql"
-
-  create_table "reservations", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "restaurant_id"
-    t.datetime "scheduled"
-    t.integer "number_of_people"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["restaurant_id"], name: "index_reservations_on_restaurant_id_id"
-    t.index ["user_id"], name: "index_reservations_on_user_id_id"
-  end
 end
