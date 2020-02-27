@@ -19,7 +19,7 @@
           <%= link_to "Profile", "#", class: "dropdown-item" %>
           <%= link_to "My Reservations", "#", class: "dropdown-item" %>
           <%= link_to "My Restaurants", "#", class: "dropdown-item" %>
-          <%= link_to "Sign Out", "#", class: "dropdown-item" %>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
     </ul>
