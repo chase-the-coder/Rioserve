@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  layout "homepage", only: :home
+  layout 'homepage', only: :home
 
   def home
   end
