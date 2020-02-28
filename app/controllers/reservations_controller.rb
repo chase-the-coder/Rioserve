@@ -32,7 +32,7 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation.delete
-    redirect_to root_path
+    redirect_to user_path(current_user)
   end
 
   private
