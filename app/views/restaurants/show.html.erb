@@ -7,7 +7,7 @@
     <p>address: <%= @restaurant.address %></p>
     <p>capacity: <%= @restaurant.capacity %></p>
   </div>
-  <div class="">
+  <div>
     <p><%= @restaurant.description %></p>
   </div>
   <%= link_to 'Make Reservation', new_restaurant_reservation_path(@restaurant), class: 'btn btn-dark' %>

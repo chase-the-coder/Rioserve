@@ -6,7 +6,7 @@
       <ul>
         <% @user.reservations.each do |reservation|%>
           <%= link_to reservation_path(reservation) do %>
-            <li> <%= reservation.restaurant.name %>, <%=reservation.scheduled.to_s.slice(5,5)%> at <%=reservation.scheduled.to_s.slice(10,6) %>
+            <li> <%= reservation.restaurant.name %>, <%=reservation.date.to_s.slice(5,5)%> at <%=reservation.time.to_s.slice(11,5) %>
             <%= link_to "<i class='fas fa-trash'></i>".html_safe, reservation_path(reservation),
             method: :delete, data: { confirm: "Are you sure?" } %>
             </li>
