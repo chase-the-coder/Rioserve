@@ -11,4 +11,9 @@
     <p><%= @restaurant.description %></p>
   </div>
   <%= link_to 'Make Reservation', new_restaurant_reservation_path(@restaurant), class: 'btn btn-dark' %>
+  <% if user_signed_in? %>
+    <%= link_to "Back", user_path(current_user), class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to "Back", restaurants_path, class: 'btn btn-danger' %>
+  <% end %>
 </div>
