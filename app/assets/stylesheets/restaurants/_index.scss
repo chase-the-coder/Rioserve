@@ -4,13 +4,9 @@ h1 {
   font-weight: bolder;
 }
 
-.main-container {
-  display: flex;
-}
-
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
   padding: 16px;
   flex-grow: 1;
@@ -28,9 +24,9 @@ h1 {
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr  1fr;
   }
 }
 
