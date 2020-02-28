@@ -19,7 +19,10 @@
       <ul>
         <% @user.restaurants.each do |restaurant|%>
           <%= link_to restaurant_path(restaurant) do %>
-            <li><%= restaurant.name %></li>
+            <li><%= restaurant.name %>
+              <%= link_to "<i class='fas fa-trash'></i>".html_safe, restaurant_path(restaurant),
+            method: :delete, data: { confirm: "Are you sure?" } %> </li>
+            </li>
           <% end %>
         <% end %>
       </ul>
