@@ -3,7 +3,10 @@
 <ul>
   <% @user.reservations.each do |reservation|%>
     <%= link_to reservation_path(reservation) do %>
-      <li><%= reservation.scheduled %></li>
+      <li><%= reservation.scheduled %>
+          <%= link_to "<i class='fas fa-trash'></i>".html_safe, reservation_path(reservation),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" } %> </li>
     <% end %>
   <% end %>
 </ul>
