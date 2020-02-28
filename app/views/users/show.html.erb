@@ -15,6 +15,7 @@
     </div>
     <div>
       <h5 class="text-center">Restaurants</h5>
+      <%= link_to 'Add Restaurant', new_restaurant_path, class: 'btn btn-primary m-3' %>
       <ul>
         <% @user.restaurants.each do |restaurant|%>
           <%= link_to restaurant_path(restaurant) do %>
