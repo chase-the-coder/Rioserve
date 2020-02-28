@@ -1,11 +1,13 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[edit show destroy update]
   def show
+    authorize @reservation
   end
 
   def new
     @reservation = Reservation.new
     @restaurant = Restaurant.find(params[:restaurant_id])
+    authorize @reservation
   end
 
   def create
@@ -17,9 +19,11 @@ class ReservationsController < ApplicationController
     else
       render :new
     end
+    authorize @reservation
   end
 
   def edit
+    authorize @reservation
   end
 
   def update
@@ -33,6 +37,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation.delete
     redirect_to user_path(current_user)
+    authorize @reservation
   end
 
   private
