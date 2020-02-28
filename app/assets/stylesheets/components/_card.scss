@@ -5,3 +5,65 @@
 .card-grow:hover {
 transform: scale(1.02);
 }
+
+.card {
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  border-radius: 1px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+.card-restaurant {
+  overflow: hidden;
+  background: white;
+}
+
+.categories-cards a {
+  text-decoration: none;
+  color: black;
+}
+
+.card-restaurant > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-restaurant-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-restaurant h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-restaurant p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-restaurant-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.card-shadow {
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
