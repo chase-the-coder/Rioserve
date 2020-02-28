@@ -1,10 +1,8 @@
-<div class="container">
-  <ul>
-    <li><%= @reservation.user.first_name %></li>
-    <li><%= @reservation.restaurant.name %></li>
-    <li><%= @reservation.scheduled %></li>
-    <li><%= @reservation.number_of_people %></li>
-  </ul>
+<div class="container text-center">
+  <h2><%= @reservation.user.first_name %>'s reservation at <%= @reservation.restaurant.name %></h2>
+    <p class="mt-4"><i class="far fa-calendar-alt"></i> <%=@reservation.scheduled.to_s.slice(5,5)%></p>
+    <p><i class="far fa-clock"></i> <%=@reservation.scheduled.to_s.slice(10,6)%></p>
+    <p><i class="fas fa-user-friends"></i> <%= @reservation.number_of_people %></p>
 
-  <%= link_to "edit this reservation", edit_reservation_path(@reservation) %>
+  <%= link_to "edit reservation", edit_reservation_path(@reservation), class: 'btn btn-dark' %>
 </div>
