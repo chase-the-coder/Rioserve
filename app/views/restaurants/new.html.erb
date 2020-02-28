@@ -3,9 +3,11 @@
     <%= f.input :name %>
     <%= f.input :address %>
     <%= f.input :category %>
+    <%= f.input :description %>
     <%= f.input :rating %>
     <%= f.input :price_range, as: :select, collection: ['$', '$$', '$$$', '$$$$', '$$$$$'] %>
     <%= f.input :capacity %>
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Create', class: 'btn btn-success' %>
+    <%= link_to "Back", user_path(current_user), class: 'btn btn-danger' %>
   <% end %>
 </div>
