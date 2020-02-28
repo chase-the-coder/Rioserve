@@ -6,20 +6,29 @@
 <div class="main-container">
 
   <div class="categories-cards">
-    <div class="card" style="background-image: url(https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/322/322303/selection-of-chinese-food-that-may-cause-chinese-restaurant-syndrome.jpg?w=1155&h=1583)">
-      Chinese
-    </div>
+    <%= link_to root_path do %>
+      <div class="card card-grow" style="background-image: url(https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/322/322303/selection-of-chinese-food-that-may-cause-chinese-restaurant-syndrome.jpg?w=1155&h=1583)">
+        Chinese
+      </div>
+    <% end %>
 
-    <div class="card" style="background-image: url(https://cdn-image.foodandwine.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/1553618584/Moqueca-Brazilian-Seafood-Stew-FT-recipe0519.jpg?itok=8HHnNwX6)">
-      Brazilian
-    </div>
-    <div class="card" style="background-image: url(https://d36tnp772eyphs.cloudfront.net/blogs/1/2017/08/27253375182_4e7d9df309_o.jpg)">
-      Peruvian
-    </div>
+    <%= link_to root_path do %>
+      <div class="card card-grow" style="background-image: url(https://cdn-image.foodandwine.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/1553618584/Moqueca-Brazilian-Seafood-Stew-FT-recipe0519.jpg?itok=8HHnNwX6)">
+        Brazilian
+      </div>
+    <% end %>
 
-    <div class="card" style="background-image: url(https://img.jakpost.net/c/2017/02/28/2017_02_28_22453_1488267265._large.jpg)">
-      Japanese
-    </div>
+    <%= link_to root_path do %>
+      <div class="card card-grow" style="background-image: url(https://d36tnp772eyphs.cloudfront.net/blogs/1/2017/08/27253375182_4e7d9df309_o.jpg)">
+        Peruvian
+      </div>
+    <% end %>
+
+    <%= link_to root_path do %>
+      <div class="card card-grow" style="background-image: url(https://img.jakpost.net/c/2017/02/28/2017_02_28_22453_1488267265._large.jpg)">
+        Japanese
+      </div>
+    <% end %>
   </div>
 
 </div>
@@ -32,16 +41,18 @@
 <div class="main-container">
   <div class="categories-cards">
     <% @restaurants.each_with_index do |restaurant, index| %>
-      <div class="card-shadow card-restaurant">
-        <img src="https://u.tfstatic.com/restaurant_photos/571/1571/169/612/restaurant-6-new-york-jerome-gangneux-vue-de-la-salle-4f1b7.jpg" alt="">
-        <div class="card-restaurant-infos">
-          <div>
-            <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
-            <p><%= restaurant.address %></p>
+      <%= link_to restaurant_path(restaurant) do %>
+        <div class="card-shadow card-restaurant card-grow">
+          <img src="https://u.tfstatic.com/restaurant_photos/571/1571/169/612/restaurant-6-new-york-jerome-gangneux-vue-de-la-salle-4f1b7.jpg" alt="">
+          <div class="card-restaurant-infos">
+            <div>
+              <h2><%= restaurant.name %></h2>
+              <p><%= restaurant.address %></p>
+            </div>
+            <h2 class="card-restaurant-pricing"><%= restaurant.price_range %></h2>
           </div>
-          <h2 class="card-restaurant-pricing"><%= restaurant.price_range %></h2>
         </div>
-      </div>
+      <% end %>
       <% break if index >= 3 %>
     <% end %>
   </div>
