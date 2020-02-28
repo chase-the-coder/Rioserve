@@ -40,7 +40,6 @@
             <p><%= restaurant.address %></p>
           </div>
           <h2 class="card-restaurant-pricing"><%= restaurant.price_range %></h2>
-          <%= cl_image_tag current_user.photo.key, crop: :fill, :class => "card-restaurant-user avatar-bordered" %>
         </div>
       </div>
       <% break if index >= 3 %>
