@@ -1,9 +1,27 @@
-<h2><%= @user.first_name %></h2>
-
-<ul>
-  <% @user.reservations.each do |reservation|%>
-    <%= link_to reservation_path(reservation) do %>
-      <li><%= reservation.scheduled %></li>
-    <% end %>
-  <% end %>
-</ul>
+<div class="container">
+  <h2 class="text-center"><%= @user.first_name %></h2>
+  <div class="d-flex justify-content-around">
+    <div>
+      <h5 class="text-center">Reservations</h5>
+      <ul>
+        <% @user.reservations.each do |reservation|%>
+          <%= link_to reservation_path(reservation) do %>
+            <li><%= reservation.scheduled %>
+            <%= link_to "<i class='fas fa-trash'></i>".html_safe, reservation_path(reservation),
+            method: :delete, data: { confirm: "Are you sure?" } %> </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div>
+      <h5 class="text-center">Restaurants</h5>
+      <ul>
+        <% @user.restaurants.each do |restaurant|%>
+          <%= link_to restaurant_path(restaurant) do %>
+            <li><%= restaurant.name %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
