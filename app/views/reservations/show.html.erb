@@ -5,4 +5,5 @@
     <p><i class="fas fa-user-friends"></i> <%= @reservation.number_of_people %></p>
 
   <%= link_to "edit reservation", edit_reservation_path(@reservation), class: 'btn btn-dark' %>
+  <%= link_to "Back", user_path(current_user), class: 'btn btn-danger' %>
 </div>
