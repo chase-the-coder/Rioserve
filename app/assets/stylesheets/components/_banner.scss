@@ -7,7 +7,6 @@
   content-align: center;
   text-align: center;
   content-position: center;
-  padding-top: 40vh;
   // filter: blur(1px);
   // display: table;
   // margin: auto;
@@ -22,4 +21,11 @@
 
 .search {
   display: inline-block;
+}
+
+.center-elements {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 300px;
 }
