@@ -1,4 +1,8 @@
+<div class="text">
   <h2 class="justify-left mt-5">Suggested Categories</h2>
+  <%= link_to "See All", "#", class: "see-all" %>
+</div>
+
 <div class="main-container">
 
   <div class="categories-cards">
@@ -9,7 +13,6 @@
     <div class="card" style="background-image: url(https://cdn-image.foodandwine.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/1553618584/Moqueca-Brazilian-Seafood-Stew-FT-recipe0519.jpg?itok=8HHnNwX6)">
       Brazilian
     </div>
-
     <div class="card" style="background-image: url(https://d36tnp772eyphs.cloudfront.net/blogs/1/2017/08/27253375182_4e7d9df309_o.jpg)">
       Peruvian
     </div>
@@ -17,6 +20,31 @@
     <div class="card" style="background-image: url(https://img.jakpost.net/c/2017/02/28/2017_02_28_22453_1488267265._large.jpg)">
       Japanese
     </div>
+  </div>
+
+</div>
+
+<div class="text">
+  <h2 class="justify-left mt-5">Trending Restaurants</h2>
+  <%= link_to "See All", restaurants_path, class: "see-all" %>
+</div>
+
+<div class="main-container">
+  <div class="categories-cards">
+    <% @restaurants.each_with_index do |restaurant, index| %>
+      <div class="card-shadow card-restaurant">
+        <img src="https://u.tfstatic.com/restaurant_photos/571/1571/169/612/restaurant-6-new-york-jerome-gangneux-vue-de-la-salle-4f1b7.jpg" alt="">
+        <div class="card-restaurant-infos">
+          <div>
+            <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
+            <p><%= restaurant.address %></p>
+          </div>
+          <h2 class="card-restaurant-pricing"><%= restaurant.price_range %></h2>
+          <%= cl_image_tag current_user.photo.key, crop: :fill, :class => "card-restaurant-user avatar-bordered" %>
+        </div>
+      </div>
+      <% break if index >= 3 %>
+    <% end %>
   </div>
 
 </div>
