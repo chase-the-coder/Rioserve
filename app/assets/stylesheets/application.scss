@@ -12,3 +12,13 @@
 @import "components/index";
 @import "pages/index";
 @import "restaurants/index";
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}
