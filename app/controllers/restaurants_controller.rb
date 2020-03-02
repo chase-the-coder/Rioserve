@@ -5,7 +5,14 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
   end
+
   def show
+         @markers = @restaurant.map do |restaurant|
+      {
+        lat: restaurant.latitude,
+        lng: restaurant.longitude
+      }
+    end
   end
 
   def new
