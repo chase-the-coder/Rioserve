@@ -1,6 +1,7 @@
 <h2 class="text-center">All restaurants</h2>
 <div class="cards categories-cards">
   <% @restaurants.each do |restaurant| %>
+   <% if policy(restaurant).index? %>
     <%= link_to restaurant_path(restaurant) do %>
       <div class="card card-grow w-100">
         <div class="card-body">
