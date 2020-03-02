@@ -10,7 +10,11 @@
   <div>
     <p><%= @restaurant.description %></p>
   </div>
-  <%= link_to 'Make Reservation', new_restaurant_reservation_path(@restaurant), class: 'btn btn-dark' %>
+
+
+  <% message = user_signed_in? ?  'Make Reservation' : 'Login to make a Reservation' %>
+
+  <%= link_to message, new_restaurant_reservation_path(@restaurant), class: 'btn btn-dark' %>
   <% if user_signed_in? %>
     <%= link_to "Back", user_path(current_user), class: 'btn btn-danger' %>
   <% else %>
