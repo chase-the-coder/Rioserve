@@ -1,19 +1,15 @@
-<h2>All restaurants</h2>
-<div class="main-container">
-  <div class="cards categories-cards">
-    <% @restaurants.each do |restaurant| %>
-      <% if policy(restaurant).index? %>
-        <%= link_to restaurant_path(restaurant) do %>
-          <div class="card card-grow" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title"><%= restaurant.name %></h5>
-              <h6 class="card-subtitle mb-2 text-muted"><%= restaurant.category %></h6>
-              <p class="card-text"><%= restaurant.price_range %></p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+<h2 class="text-center">All restaurants</h2>
+<div class="cards categories-cards">
+  <% @restaurants.each do |restaurant| %>
+   <% if policy(restaurant).index? %>
+    <%= link_to restaurant_path(restaurant) do %>
+      <div class="card card-grow w-100">
+        <div class="card-body">
+          <h5 class="card-title text-center"><%= restaurant.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted text-center"><%= restaurant.category %></h6>
+          <p class="card-text text-center"><%= restaurant.price_range %></p>
+        </div>
+      </div>
     <% end %>
-  </div>
+  <% end %>
 </div>
-
