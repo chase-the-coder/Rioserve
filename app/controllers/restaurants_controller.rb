@@ -7,12 +7,11 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-         @markers = @restaurant.map do |restaurant|
+         @markers =
       {
-        lat: restaurant.latitude,
-        lng: restaurant.longitude
+        lat: @restaurant.latitude,
+        lng: @restaurant.longitude
       }
-    end
   end
 
   def new
