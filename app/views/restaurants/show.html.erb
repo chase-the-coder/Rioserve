@@ -26,13 +26,52 @@
 
 
   <% message = user_signed_in? ?  'Make Reservation' : 'Login to make a Reservation' %>
-  <div class="m-4">
-    <%= link_to message, new_restaurant_reservation_path(@restaurant), class: 'btn btn-dark' %>
-    <% if user_signed_in? %>
-      <%= link_to "Back", user_path(current_user), class: 'btn btn-danger' %>
-    <% else %>
-      <%= link_to "Back", restaurants_path, class: 'btn btn-danger' %>
-    <% end %>
+
+
+
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Make a reservation
+  </button> -->
+  <%= simple_form_for :date, url: new_restaurant_reservation_path(@restaurant), method: :get do |f| %>
+    <div class="form-inline m-3 justify-content-center">
+      <%= f.input :date, as: :date, html5: true, label: false %>
+      <%= f.submit "Make a Reservation", class: "btn btn-dark" %>
+    </div>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= link_to "Back", user_path(current_user), class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to "Back", restaurants_path, class: 'btn btn-danger' %>
+  <% end %>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New reservation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="py-3 w-50 m-auto">
+          <%= simple_form_for :Dakjs do |f| %>
+            <div class="d-flex w-100 justify-content-around">
+              <%= f.input :time, as: :time %>
+            </div>
+            <%= f.hidden_field :date, value: @date %>
+            <%= f.input :number_of_people, collection: 1..@restaurant.capacity - @restaurant.occupation_for(@date) %>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+          <%= link_to "Go back!", user_path(current_user), class: "btn btn-dark" %>
+          <%= f.submit "Reserve", class: "btn btn-primary" %>
+      </div>
+          <% end %>
+    </div>
+  </div>
   </div>
 </div>
 
