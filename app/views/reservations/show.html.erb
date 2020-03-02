@@ -1,5 +1,16 @@
 <div class="container text-center">
   <h2><%= @reservation.user.first_name %>'s reservation at <%= @reservation.restaurant.name %></h2>
+  <div class="d-flex justify-content-center">
+    <%= image_tag @restaurant.image, {id: 'reservation-image', class: 'mr-3 rounded'}  %>
+      <div
+      class=""
+      id="map"
+      style="width: 25%;
+      height: auto;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
     <p class="mt-4"><i class="far fa-calendar-alt"></i> <%=@reservation.date.to_s.slice(5,5)%></p>
     <p><i class="far fa-clock"></i> <%=@reservation.time.to_s.slice(11,5)%></p>
     <p><i class="fas fa-user-friends"></i> <%= @reservation.number_of_people %></p>
