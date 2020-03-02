@@ -1,14 +1,19 @@
 <h2 class="text-center">All restaurants</h2>
 <div class="cards categories-cards">
   <% @restaurants.each do |restaurant| %>
-    <%= link_to restaurant_path(restaurant) do %>
-      <div class="card card-grow w-100">
-        <div class="card-body">
-          <h5 class="card-title text-center"><%= restaurant.name %></h5>
-          <h6 class="card-subtitle mb-2 text-muted text-center"><%= restaurant.category %></h6>
-          <p class="card-text text-center"><%= restaurant.price_range %></p>
+    <% if policy(restaurant).index? %>
+      <%= link_to restaurant_path(restaurant) do %>
+        <div class="card-shadow card-restaurant card-grow w-100">
+          <%= image_tag(restaurant.image) %>
+          <div class="card-restaurant-infos">
+            <div>
+              <h2><%= truncate restaurant.name, length: 30, separator: /\w+/ %></h2>
+              <p><%= restaurant.category %></p>
+            </div>
+            <h2 class="card-restaurant-pricing"><%= "$" * restaurant.price_range.to_i %></h2>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>

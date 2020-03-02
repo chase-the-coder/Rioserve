@@ -1,9 +1,9 @@
 class RestaurantsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = policy_scope(Restaurant).order(created_at: :desc)
   end
 
   def show
@@ -12,7 +12,7 @@ class RestaurantsController < ApplicationController
         lat: restaurant.latitude,
         lng: restaurant.longitude
       }
-    end
+    authorize @restaurant
   end
 
   def new
@@ -27,6 +27,7 @@ class RestaurantsController < ApplicationController
     else
       render :new
     end
+    authorize @restaurant
   end
 
   def edit
@@ -38,11 +39,13 @@ class RestaurantsController < ApplicationController
     else
       render :new
     end
+    authorize @restaurant
   end
 
   def destroy
     @restaurant.destroy
     redirect_to user_path(current_user)
+    authorize @restaurant
   end
 
   private
