@@ -5,6 +5,7 @@ class ReservationsController < ApplicationController
   end
 
   def new
+    @date = params[:date][:date]
     @reservation = Reservation.new
     @restaurant = Restaurant.find(params[:restaurant_id])
     authorize @reservation
@@ -23,11 +24,13 @@ class ReservationsController < ApplicationController
   end
 
   def edit
+    @restaurant = @reservation.restaurant
     authorize @reservation
   end
 
   def update
     if @reservation.update(reservation_params)
+      authorize @reservation
       redirect_to reservation_path(@reservation)
     else
       render :edit

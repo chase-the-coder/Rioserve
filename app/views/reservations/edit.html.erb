@@ -1,12 +1,11 @@
 <div class="py-3 w-50 m-auto">
-  <h1>Edit resevation!</h1>
-    <%= simple_form_for [@restaurant, @reservation] do |f| %>
+  <h1>Edit reservation!</h1>
+    <%= simple_form_for [@restaurant, @reservation], url: reservation_path(@reservation) do |f| %>
       <div class="d-flex w-100 justify-content-between">
-        <%= f.input :date, as: :date, html5: true %>
         <%= f.input :time, as: :time %>
       </div>
-      <%= f.input :number_of_people %>
-      <%= f.submit "submit", class: "btn btn-primary mb-3" %>
+      <%= f.input :number_of_people, collection: 1..@restaurant.capacity - @restaurant.occupation_for(@reservation.date) + @reservation.number_of_people %>
+      <%= f.submit "Save!", class: "btn btn-primary mb-3" %>
     <% end %>
     <%= link_to "Go back!", user_path(current_user), class: "btn btn-dark" %>
 </div>
