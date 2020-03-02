@@ -1,6 +1,13 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[edit show destroy update]
   def show
+    @restaurant = @reservation.restaurant
+    @markers =
+      {
+        lat: @restaurant.latitude,
+        lng: @restaurant.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { restaurant: @restaurant })
+      }
     authorize @reservation
   end
 
