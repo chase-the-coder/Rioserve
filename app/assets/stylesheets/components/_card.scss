@@ -24,6 +24,7 @@ transform: scale(1.02);
 .card-restaurant {
   overflow: hidden;
   background: white;
+  height: 270px;
 }
 
 .categories-cards a {
@@ -43,6 +44,7 @@ transform: scale(1.02);
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  // overflow: hidden;
 }
 
 .card-restaurant h2 {
