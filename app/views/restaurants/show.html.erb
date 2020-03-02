@@ -53,7 +53,7 @@
       </div>
       <div class="modal-body">
         <div class="py-3 w-50 m-auto">
-          <%= simple_form_for :Dakjs do |f| %>
+          <%= simple_form_for :restaaurant do |f| %>
             <div class="d-flex w-100 justify-content-around">
               <%= f.input :time, as: :time %>
             </div>
@@ -64,7 +64,7 @@
       </div>
       <div class="modal-footer">
           <% if user_signed_in? %>
-            <%= link_to "Back", user_path(current_user), class: 'btn btn-danger' %>
+            <%= link_to "Back", restaurant_path(@restaurant), class: 'btn btn-danger' %>
           <% else %>
             <%= link_to "Back", restaurants_path, class: 'btn btn-danger' %>
           <% end %>
