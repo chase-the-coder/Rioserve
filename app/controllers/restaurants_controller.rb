@@ -7,16 +7,13 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
          @markers =
       {
         lat: @restaurant.latitude,
         lng: @restaurant.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { restaurant: @restaurant })
       }
-=======
     authorize @restaurant
->>>>>>> 5ee2c83cb625f89c58d607e9e52315060d27b251
   end
 
   def new
