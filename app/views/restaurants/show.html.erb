@@ -24,18 +24,15 @@
     </div>
   </div>
 
-
   <% message = user_signed_in? ?  'Make Reservation' : 'Login to make a Reservation' %>
 
-
-
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Make a reservation
-  </button> -->
+  </button>
   <%= simple_form_for :date, url: new_restaurant_reservation_path(@restaurant), method: :get do |f| %>
     <div class="form-inline m-3 justify-content-center">
       <%= f.input :date, as: :date, html5: true, label: false %>
-      <%= f.submit "Make a Reservation", class: "btn btn-dark" %>
+      <%= f.submit message, class: "btn btn-dark" %>
     </div>
   <% end %>
 
@@ -66,7 +63,11 @@
 
       </div>
       <div class="modal-footer">
-          <%= link_to "Go back!", user_path(current_user), class: "btn btn-dark" %>
+          <% if user_signed_in? %>
+            <%= link_to "Back", user_path(current_user), class: 'btn btn-danger' %>
+          <% else %>
+            <%= link_to "Back", restaurants_path, class: 'btn btn-danger' %>
+          <% end %>
           <%= f.submit "Reserve", class: "btn btn-primary" %>
       </div>
           <% end %>
