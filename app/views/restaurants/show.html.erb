@@ -71,7 +71,7 @@
               <%= f.input :time, as: :time %>
             </div>
             <%= f.hidden_field :date, value: @date %>
-            <%= f.input :number_of_people, collection: 1..@restaurant.capacity - @restaurant.occupation_for(@date) %>
+            <%= f.input :number_of_people, collection: 1..@restaurant.capacity %>
         </div>
 
       </div>

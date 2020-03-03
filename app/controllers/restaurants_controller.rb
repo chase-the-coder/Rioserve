@@ -50,6 +50,10 @@ class RestaurantsController < ApplicationController
     authorize @restaurant
   end
 
+  def calc_occupation(date)
+    occupation_for(date)
+  end
+
   private
 
   def set_restaurant
