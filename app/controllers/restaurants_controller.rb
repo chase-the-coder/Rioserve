@@ -1,19 +1,19 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :calc_occupation]
 
   def index
     @restaurants = policy_scope(Restaurant).order(created_at: :desc)
   end
 
   def show
-
-         @markers =
+    @markers =
       {
         lat: @restaurant.latitude,
         lng: @restaurant.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { restaurant: @restaurant })
       }
+      @reservation = Reservation.new
     authorize @restaurant
   end
 
@@ -50,8 +50,13 @@ class RestaurantsController < ApplicationController
     authorize @restaurant
   end
 
-  def calc_occupation(date)
-    occupation_for(date)
+  def calc_occupation
+    # FIX THIS GAMBIARRA
+    date = params.keys.first
+    # FIX THIS GAMBIARRA
+
+    @free_spots = @restaurant.capacity - @restaurant.occupation_for(date)
+    authorize @restaurant
   end
 
   private

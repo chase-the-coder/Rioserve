@@ -10,16 +10,14 @@
   </div>
   <% if policy(@restaurant).update? %>
     <h2>Reservations</h2>
-    <ul>
       <% @restaurant.reservations.each do |reservation| %>
-        <p>
+        <p class="text-center">
           <i class="fas fa-star"></i> Name: <%= reservation.user.first_name %>
           <i class="far fa-calendar-alt"></i>
-          <%= reservation.time.to_s.slice(5,5) %>
+          <%= reservation.date.to_s.slice(5,5) %>
           <i class="far fa-clock"></i> <%= reservation.time.to_s.slice(11,5)%>
           <i class="fas fa-user-friends"></i> <%= reservation.number_of_people %>
         </p>
-      </ul>
     <% end %>
   <% end %>
   <div class="">
@@ -39,15 +37,11 @@
 
   <% message = user_signed_in? ?  'Make Reservation' : 'Login to make a Reservation' %>
 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Make a reservation
-  </button>
-  <%= simple_form_for :date, url: new_restaurant_reservation_path(@restaurant), method: :get do |f| %>
-    <div class="form-inline m-3 justify-content-center">
-      <%= f.input :date, as: :date, html5: true, label: false %>
-      <%= f.submit message, class: "btn btn-dark" %>
+    <div class="m-3 justify-content-center">
+      <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
+        <%= message %>
+      </button>
     </div>
-  <% end %>
 
   <% if user_signed_in? %>
     <%= link_to "Back", user_path(current_user), class: 'btn btn-danger mb-3' %>
@@ -66,26 +60,47 @@
       </div>
       <div class="modal-body">
         <div class="py-3 w-50 m-auto">
-          <%= simple_form_for :restaaurant do |f| %>
-            <div class="d-flex w-100 justify-content-around">
-              <%= f.input :time, as: :time %>
-            </div>
-            <%= f.hidden_field :date, value: @date %>
+          <%= simple_form_for [@restaurant, @reservation] do |f| %>
+            <%= f.input :date, as: :date, html5: true %>
+            <%= f.input :time, as: :time %>
             <%= f.input :number_of_people, collection: 1..@restaurant.capacity %>
         </div>
 
       </div>
       <div class="modal-footer">
-          <% if user_signed_in? %>
-            <%= link_to "Back", restaurant_path(@restaurant), class: 'btn btn-danger' %>
-          <% else %>
-            <%= link_to "Back", restaurants_path, class: 'btn btn-danger' %>
-          <% end %>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+          Close
+        </button>
           <%= f.submit "Reserve", class: "btn btn-primary" %>
-      </div>
           <% end %>
+      </div>
     </div>
   </div>
   </div>
 </div>
 
+<script>
+  const changeSelector = (freeSpots) => {
+    const select = document.getElementById("reservation_number_of_people");
+    select.innerHTML = ""
+    for (let i = 0; i < freeSpots; i++) {
+      opt = document.createElement("option");
+      opt.value = i + 1;
+      opt.text = i + 1;
+      select.add(opt);
+    };
+  };
+
+  const date = document.getElementById("reservation_date")
+  date.addEventListener("change", (event) => {
+    const datatest = { date: date.value }
+    console.log(datatest)
+     Rails.ajax({
+       type: "GET",
+       url: "/restaurants/<%= @restaurant.id %>/calc_occupation",
+       data: date.value,
+       success: changeSelector
+     })
+   })
+
+</script>
