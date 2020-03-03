@@ -1,6 +1,7 @@
 require 'json'
 require 'open-uri'
 
+def search(query)
 url = 'https://developers.zomato.com/api/v2.1/search?entity_id=73&entity_type=city&apikey=a4f1d85868c5fa3598a0e5580a1a2215'
 restaurant_api = open(url).read
 api = JSON.parse(restaurant_api)
@@ -10,7 +11,7 @@ puts "Deleting restaurants"
 Restaurant.delete_all
 puts "Deleted all restaurants"
 puts "Creating restaurants"
-restaurants.count.times do |counter|
+restaurants.each do |counter|
   Restaurant.create(
     user_id: 1,
     name: restaurants[counter]["restaurant"]["name"],
@@ -29,3 +30,9 @@ restaurants.count.times do |counter|
     )
 end
 puts "Created new restaurants"
+end
+
+
+search("flamengo")
+search("botafogo")
+search("gloria")
