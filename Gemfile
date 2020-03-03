@@ -40,4 +40,5 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'geocoder'
 # Authorization
 gem 'pundit'
-
+# Search
+gem 'pg_search', '~> 2.3.0'

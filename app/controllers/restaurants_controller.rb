@@ -3,7 +3,20 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
-    @restaurants = policy_scope(Restaurant).order(created_at: :desc)
+    if params[:query].present?
+      @searched = true
+      if params[:search_filter] == "byname"
+        @restaurants = policy_scope(Restaurant.search_by_name(params[:query]))
+      elsif params[:search_filter] == "bycategory"
+        @restaurants = policy_scope(Restaurant.search_by_category_and_description(params[:query]))
+      else
+        @restaurants = policy_scope(Restaurant.search_by_address(params[:query]))
+      end
+      # binding.pry
+    else
+      @restaurants = policy_scope(Restaurant).order(created_at: :desc)
+    end
+
   end
 
   def show
@@ -19,6 +32,7 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+    authorize @restaurant
   end
 
   def create
