@@ -11,7 +11,7 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-    <p class="mt-4"><i class="far fa-calendar-alt"></i> <%=@reservation.date.to_s.slice(5,5)%></p>
+    <p class="mt-4"><i class="far fa-calendar-alt"></i> <%=@reservation.time.to_s.slice(5,5)%></p>
     <p><i class="far fa-clock"></i> <%=@reservation.time.to_s.slice(11,5)%></p>
     <p><i class="fas fa-user-friends"></i> <%= @reservation.number_of_people %></p>
 
