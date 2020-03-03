@@ -18,7 +18,7 @@
   <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
   Edit reservation
 </button>
-  <%= link_to "Back", user_path(current_user), class: 'btn btn-danger' %>
+  <%= link_to "Back", user_path(current_user), class: 'btn btn-outline-secondary' %>
 
 </div>
 
@@ -40,10 +40,10 @@
 
       </div>
       <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" aria-label="Close">
           Close
         </button>
-          <%= f.submit "Save", class: "btn btn-primary" %>
+          <%= f.submit "Save", class: "btn btn-dark" %>
           <% end %>
       </div>
     </div>
