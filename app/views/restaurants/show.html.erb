@@ -1,7 +1,6 @@
 <div class="container mt-4 text-center">
   <h1 class=""><%= @restaurant.name %></h1>
-  <%= image_tag @restaurant.image, {id: 'restaurant-image', class: 'pb-4'}  %>
-
+    <%= image_tag @restaurant.image, {id: 'restaurant-image', class: 'pb-4'} unless @restaurant.image.nil? %>
   <div class="d-flex justify-content-around mb-4">
     <p>rating: <%= @restaurant.rating %></p>
     <p>price: <%= "$" * @restaurant.price_range.to_i %></p>
