@@ -1,35 +1,62 @@
 <div class="text">
   <h2 class="justify-left mt-5">Suggested Categories</h2>
-  <%= link_to "See All", "#", class: "see-all" %>
+  <!-- <%= link_to "See All", "#", class: "see-all" %> -->
 </div>
 
 <div class="main-container">
 
   <div class="categories-cards">
-    <%= link_to root_path do %>
-      <div class="card card-grow" style="background-image: url(https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/322/322303/selection-of-chinese-food-that-may-cause-chinese-restaurant-syndrome.jpg?w=1155&h=1583)">
-        Chinese
+    <%= link_to restaurants_path(query: "cafe", search_filter: "bycategory") do %>
+      <div class="card card-grow" style="background-image: url(https://leblog.com.br/wp-content/uploads/2017/06/devils-cake.jpg)">
+        Cafe
       </div>
     <% end %>
 
-    <%= link_to root_path do %>
+    <%= link_to restaurants_path(query: "brazilian", search_filter: "bycategory") do %>
       <div class="card card-grow" style="background-image: url(https://cdn-image.foodandwine.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/1553618584/Moqueca-Brazilian-Seafood-Stew-FT-recipe0519.jpg?itok=8HHnNwX6)">
         Brazilian
       </div>
     <% end %>
 
-    <%= link_to root_path do %>
-      <div class="card card-grow" style="background-image: url(https://d36tnp772eyphs.cloudfront.net/blogs/1/2017/08/27253375182_4e7d9df309_o.jpg)">
-        Peruvian
+    <%= link_to restaurants_path(query: "grill", search_filter: "bycategory") do %>
+      <div class="card card-grow" style="background-image: url(https://www.rwsentosa.com/-/media/project/non-gaming/rwsentosa/restaurants/osia-steak-and-seafood-grill/osia-steak--seafood-grill-beef-steak-1366x666.jpg?mh=666&la=en&h=666&w=1366&mw=1366&hash=70CF567FEAF4823EB48D8AA2F2738B0475A802AB)">
+        Grill
       </div>
     <% end %>
 
-    <%= link_to root_path do %>
+    <%= link_to restaurants_path(query: "japanese", search_filter: "bycategory") do %>
       <div class="card card-grow" style="background-image: url(https://img.jakpost.net/c/2017/02/28/2017_02_28_22453_1488267265._large.jpg)">
         Japanese
       </div>
     <% end %>
+
+    <%= link_to restaurants_path(query: "bar food", search_filter: "bycategory") do %>
+      <div class="card card-grow" style="background-image: url(https://cdnimg.webstaurantstore.com/uploads/buying_guide/2014/11/barfood-beerchicken.jpg)">
+        Bar Food
+      </div>
+    <% end %>
+
+    <%= link_to restaurants_path(query: "french", search_filter: "bycategory") do %>
+      <div class="card card-grow" style="background-image: url(https://thumbor.thedailymeal.com/6-ZtETfEmjy2WZiA87cyuA_qiTI=/870x565/https://www.thedailymeal.com/sites/default/files/story/0_Intro_5_escargot%20de%20bougogne_marcmayer-Shutterstock.jpg)">
+        French
+      </div>
+    <% end %>
+
+    <%= link_to restaurants_path(query: "steak", search_filter: "bycategory") do %>
+      <div class="card card-grow" style="background-image: url(https://cdn-image.foodandwine.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/rib-eye-steak-au-poivre-xl-200202.jpg?itok=V64uhOvr)">
+        Steak
+      </div>
+    <% end %>
+
+    <%= link_to restaurants_path(query: "italian", search_filter: "bycategory") do %>
+      <div class="card card-grow" style="background-image: url(https://img.manoramaonline.com/content/dam/mm/en/food/foodie/images/2020/1/26/lasagna.jpg)">
+        Italian
+      </div>
+    <% end %>
+
   </div>
+
+
 
 </div>
 
@@ -46,14 +73,14 @@
           <%= image_tag(restaurant.image) %>
           <div class="card-restaurant-infos">
             <div>
-              <h2><%= restaurant.name %></h2>
+              <h2><%= truncate restaurant.name, length: 25, separator: /\w+/ %></h2>
               <p><%= restaurant.category %></p>
             </div>
             <h2 class="card-restaurant-pricing"><%= "$" * restaurant.price_range.to_i %></h2>
           </div>
         </div>
       <% end %>
-      <% break if index >= 3 %>
+      <% break if index >= 7 %>
     <% end %>
   </div>
 

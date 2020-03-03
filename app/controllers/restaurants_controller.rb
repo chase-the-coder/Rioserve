@@ -47,6 +47,7 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
+    authorize @restaurant
   end
 
   def update
