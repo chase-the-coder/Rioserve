@@ -4,7 +4,7 @@
 
   <div class="d-flex justify-content-around mb-4">
     <p>rating: <%= @restaurant.rating %></p>
-    <p>price: <%= @restaurant.price_range %></p>
+    <p>price: <%= "$" * @restaurant.price_range.to_i %></p>
     <p>category: <%= @restaurant.category %></p>
     <p>address: <%= @restaurant.address %></p>
     <p>capacity: <%= @restaurant.capacity %></p>
