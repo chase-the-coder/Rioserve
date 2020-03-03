@@ -12,7 +12,6 @@ class RestaurantsController < ApplicationController
       else
         @restaurants = policy_scope(Restaurant.search_by_address(params[:query]))
       end
-      # binding.pry
     else
       @restaurants = policy_scope(Restaurant).order(created_at: :desc)
     end
