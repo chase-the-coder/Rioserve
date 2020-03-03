@@ -3,7 +3,13 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
-    @restaurants = policy_scope(Restaurant).order(created_at: :desc)
+    if params[:query].present?
+      @restaurants = policy_scope(Restaurant.search_by_name_and_category(params[:query]))
+      @searched = true
+    else
+      @restaurants = policy_scope(Restaurant).order(created_at: :desc)
+    end
+
   end
 
   def show
@@ -19,6 +25,7 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+    authorize @restaurant
   end
 
   def create
