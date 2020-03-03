@@ -50,7 +50,7 @@
             <%= f.input :name %>
             <%= f.input :address %>
             <%= f.input :category %>
-            <%= f.input :price_range, as: :select, collection: ['$', '$$', '$$$', '$$$$', '$$$$$'] %>
+            <%= f.input :price_range, as: :select, collection: (1..5) %>
             <%= f.input :capacity %>
         </div>
 
