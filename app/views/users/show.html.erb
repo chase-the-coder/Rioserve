@@ -16,7 +16,9 @@
     </div>
     <div>
       <h5 class="text-center">Restaurants</h5>
-      <%= link_to 'Add Restaurant', new_restaurant_path, class: 'btn btn-primary m-3' %>
+      <button class="btn btn-dark btn-sm" data-toggle="modal" data-target="#exampleModal">
+        Add Restaurant
+      </button>
       <ul>
         <% @user.restaurants.each do |restaurant|%>
           <%= link_to restaurant_path(restaurant) do %>
@@ -24,7 +26,7 @@
             <%= restaurant.name %>
             <%= link_to "<i class='fas fa-trash'></i>".html_safe, restaurant_path(restaurant),
             method: :delete, data: { confirm: "Are you sure?" } %>
-            <i class='fas fa-wrench' data-toggle="modal" data-target="#exampleModal"></i>
+            <%= link_to "<i class='fas fa-wrench'></i>".html_safe, edit_restaurant_path(restaurant) %>
             <i class="fas fa-user-friends"></i>: <%= restaurant.reservations.count %>
             </li>
           <% end %>
@@ -33,12 +35,11 @@
     </div>
   </div>
 </div>
-
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New reservation</h5>
+        <h5 class="modal-title" id="exampleModalLabel">New restaurant</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
