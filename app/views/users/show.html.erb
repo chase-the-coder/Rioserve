@@ -24,7 +24,7 @@
             <%= restaurant.name %>
             <%= link_to "<i class='fas fa-trash'></i>".html_safe, restaurant_path(restaurant),
             method: :delete, data: { confirm: "Are you sure?" } %>
-            <%= link_to "<i class='fas fa-wrench'></i>".html_safe, edit_restaurant_path(restaurant) %>
+            <i class='fas fa-wrench' data-toggle="modal" data-target="#exampleModal"></i>
             <i class="fas fa-user-friends"></i>: <%= restaurant.reservations.count %>
             </li>
           <% end %>
@@ -33,10 +33,6 @@
     </div>
   </div>
 </div>
-
-<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
-  edit
-</button>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -48,7 +44,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="py-3 w-50 m-auto">
+        <div class="py-3 w-75 m-auto">
           <%= simple_form_for @restaurant do |f| %>
             <%= f.input :name %>
             <%= f.input :address %>
@@ -59,10 +55,10 @@
 
       </div>
       <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
           Close
         </button>
-          <%= f.submit "Reserve", class: "btn btn-primary" %>
+          <%= f.submit "save", class: "btn btn-primary" %>
           <% end %>
       </div>
     </div>

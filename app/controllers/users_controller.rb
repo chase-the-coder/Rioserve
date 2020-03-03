@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, except: :update
 
   def show
+    @restaurant = Restaurant.find(params[:id])
   end
 
   def edit

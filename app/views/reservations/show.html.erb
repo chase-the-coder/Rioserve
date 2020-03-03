@@ -11,18 +11,16 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-    <p class="mt-4"><i class="far fa-calendar-alt"></i> <%=@reservation.time.to_s.slice(5,5)%></p>
+    <p class="mt-4"><i class="far fa-calendar-alt"></i> <%=@reservation.date.to_s.slice(5,5)%></p>
     <p><i class="far fa-clock"></i> <%=@reservation.time.to_s.slice(11,5)%></p>
     <p><i class="fas fa-user-friends"></i> <%= @reservation.number_of_people %></p>
 
-  <%= link_to "Edit reservation", edit_reservation_path(@reservation), class: 'btn btn-dark' %>
+  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
+  Edit reservation
+</button>
   <%= link_to "Back", user_path(current_user), class: 'btn btn-danger' %>
 
 </div>
-
-<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
-  Edit
-</button>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -34,9 +32,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="py-3 w-50 m-auto">
-          <%= simple_form_for :teste do |f| %>
-            <%= f.input :date, as: :date, html5: true %>
+        <div class="py-3 w-75 m-auto">
+          <%= simple_form_for @reservation do |f| %>
             <%= f.input :time, as: :time %>
             <%= f.input :number_of_people, collection: 1..@restaurant.capacity %>
         </div>
@@ -46,7 +43,7 @@
           <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
           Close
         </button>
-          <%= f.submit "Reserve", class: "btn btn-primary" %>
+          <%= f.submit "Save", class: "btn btn-primary" %>
           <% end %>
       </div>
     </div>
