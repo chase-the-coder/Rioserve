@@ -1,12 +1,12 @@
 <div class="container mt-4 text-center">
   <h1 class=""><%= @restaurant.name %></h1>
     <%= image_tag @restaurant.image, {id: 'restaurant-image', class: 'pb-4'} unless @restaurant.image.nil? %>
-  <div class="d-flex justify-content-around mb-4">
-    <p>rating: <%= @restaurant.rating %></p>
-    <p>price: <%= "$" * @restaurant.price_range.to_i %></p>
-    <p>category: <%= @restaurant.category %></p>
-    <p>address: <%= @restaurant.address %></p>
-    <p>capacity: <%= @restaurant.capacity %></p>
+  <div class="d-flex justify-content-around mb-4 pt-3 border border-dark">
+    <p>Rating: <%= @restaurant.rating %> <i class="fas fa-star"></i></p>
+    <p>Price: <%= "$" * @restaurant.price_range.to_i %></p>
+    <p>Category: <%= @restaurant.category %></p>
+    <p>Address: <%= @restaurant.address %></p>
+    <p>Capacity: <%= @restaurant.capacity %></p>
   </div>
   <% if policy(@restaurant).update? %>
     <h2>Reservations</h2>
