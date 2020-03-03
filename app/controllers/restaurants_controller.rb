@@ -4,8 +4,15 @@ class RestaurantsController < ApplicationController
 
   def index
     if params[:query].present?
-      @restaurants = policy_scope(Restaurant.search_by_name_and_category(params[:query]))
       @searched = true
+      if params[:search_filter] == "byname"
+        @restaurants = policy_scope(Restaurant.search_by_name(params[:query]))
+      elsif params[:search_filter] == "bycategory"
+        @restaurants = policy_scope(Restaurant.search_by_category_and_description(params[:query]))
+      else
+        @restaurants = policy_scope(Restaurant.search_by_address(params[:query]))
+      end
+      # binding.pry
     else
       @restaurants = policy_scope(Restaurant).order(created_at: :desc)
     end

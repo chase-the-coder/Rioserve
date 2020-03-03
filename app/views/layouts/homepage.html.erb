@@ -17,19 +17,7 @@
     <div class="home-banner">
       <div class="center-elements">
         <h1>Rioserve</h1>
-        <%= form_tag restaurants_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find a movie"
-          %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
-        <% end %>
-<!--         <form class="form-inline search">
-          <i class="fas fa-search" aria-hidden="true"></i>
-          <input class="form-control form-control-sm ml-3 w-25" type="text" placeholder="Search"
-            aria-label="Search">
-        </form> -->
+        <%= render 'shared/search-bar' %>
       </div>
     </div>
 

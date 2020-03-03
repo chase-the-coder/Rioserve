@@ -1,0 +1,18 @@
+<%= form_tag restaurants_path, method: :get, class: "form-inline" do %>
+  <%= render 'shared/search-dropdown' %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control ml-0 w-25",
+    type: "text",
+    placeholder: "Find your restaurant"
+  %>
+  <%= button_tag type: 'submit', class: "form-control search-button", id: "search-button" do %>
+    <i class="fas fa-search" aria-hidden="true"></i>
+  <% end %>
+<% end %>
+
+<!--         <form class="form-inline search">
+          <i class="fas fa-search" aria-hidden="true"></i>
+          <input class="form-control form-control-sm ml-3 w-25" type="text" placeholder="Search"
+            aria-label="Search">
+        </form> -->

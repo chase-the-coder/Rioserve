@@ -10,10 +10,23 @@ class Restaurant < ApplicationRecord
     total
   end
 
-  pg_search_scope :search_by_name_and_category,
-    against: [ :name, :category ],
+  pg_search_scope :search_by_name,
+    against: [ :name ],
     using: {
       tsearch: { prefix: true }
     }
+
+  pg_search_scope :search_by_category_and_description,
+    against: [ :category, :description ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
+  pg_search_scope :search_by_address,
+    against: [ :address ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end
 
