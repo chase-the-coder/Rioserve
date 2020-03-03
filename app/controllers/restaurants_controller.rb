@@ -13,7 +13,7 @@ class RestaurantsController < ApplicationController
         @restaurants = policy_scope(Restaurant.search_by_address(params[:query]))
       end
     else
-      @restaurants = policy_scope(Restaurant).order(created_at: :desc)
+      @restaurants = policy_scope(Restaurant.all).order(created_at: :desc)
     end
 
   end
