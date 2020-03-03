@@ -21,4 +21,9 @@ class RestaurantPolicy < ApplicationPolicy
     return true
   end
 
+  def calc_occupation?
+    # BACKLOG: SOLVE IT
+    true
+  end
+
 end

@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :calc_occupation]
 
   def index
     if params[:query].present?
@@ -20,13 +20,13 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-
-         @markers =
+    @markers =
       {
         lat: @restaurant.latitude,
         lng: @restaurant.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { restaurant: @restaurant })
       }
+      @reservation = Reservation.new
     authorize @restaurant
   end
 
@@ -51,7 +51,7 @@ class RestaurantsController < ApplicationController
 
   def update
     if @restaurant.update(restaurant_params)
-      redirect_to restaurant_path(@restaurant)
+      redirect_to user_path(current_user)
     else
       render :new
     end
@@ -61,6 +61,15 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant.destroy
     redirect_to user_path(current_user)
+    authorize @restaurant
+  end
+
+  def calc_occupation
+    # FIX THIS GAMBIARRA
+    date = params.keys.first
+    # FIX THIS GAMBIARRA
+
+    @free_spots = @restaurant.capacity - @restaurant.occupation_for(date)
     authorize @restaurant
   end
 
