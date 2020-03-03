@@ -42,7 +42,7 @@ restaurants = api["restaurants"]
 puts "Creating restaurants for second user"
 restaurants.count.times do |counter|
   Restaurant.create(
-    user_id: 6,
+    user_id: 7,
     name: restaurants[counter]["restaurant"]["name"],
     description: Faker::Restaurant.description,
     address: restaurants[counter]["restaurant"]["location"]["address"],
