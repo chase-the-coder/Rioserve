@@ -9,7 +9,7 @@
     <p>address: <%= @restaurant.address %></p>
     <p>capacity: <%= @restaurant.capacity %></p>
   </div>
-  <% if current_user == @restaurant.user %>
+  <% if policy(@restaurant).update? %>
     <% @restaurant.reservations.each do |reservation| %>
       <p>
         <i class="far fa-calendar-alt"></i>
