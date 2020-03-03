@@ -1,0 +1,22 @@
+const changeSelector = (people) => {
+  const select = document.getElementById("reservation_number_of_people");
+  select.innerHTML = ""
+  for (let i = 0; i < people; i++) {
+    opt = document.createElement("option");
+    opt.value = i + 1;
+    select.add(opt);
+  };
+};
+
+const apiCall = (date) => {
+
+  Rails.ajax({
+    type: "POST",
+    url: "/restaurants/calc_occupation",
+    data: date,
+    success: changeSelector(json),
+  })
+};
+
+  const date = document.querySelector(".form-control")
+  date.addEventListener("change", apiCall(date.value))
