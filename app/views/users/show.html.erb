@@ -25,7 +25,7 @@
             <%= link_to "<i class='fas fa-trash'></i>".html_safe, restaurant_path(restaurant),
             method: :delete, data: { confirm: "Are you sure?" } %>
             <%= link_to "<i class='fas fa-wrench'></i>".html_safe, edit_restaurant_path(restaurant) %>
-            </li>
+            <i class="fas fa-user-friends"></i>: <%= restaurant.reservations.count %>
             </li>
           <% end %>
         <% end %>
