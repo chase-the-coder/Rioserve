@@ -1,4 +1,8 @@
-<h2 class="text-center">All restaurants</h2>
+<% if @searched == true %>
+  <h2 class="text-center">Here are your results:</h2>
+<% else %>
+  <h2 class="text-center">All restaurants</h2>
+<% end %>
 <div class="cards categories-cards">
   <% @restaurants.each do |restaurant| %>
     <% if policy(restaurant).index? %>

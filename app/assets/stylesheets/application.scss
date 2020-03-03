@@ -22,3 +22,26 @@
 .site-content {
   flex: 1;
 }
+
+.form-control {
+  border-left: none;
+  border-radius: 0;
+}
+
+.form-inline {
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.form-control > select {
+  border-right: 1px solid #DDD;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-control > button {
+  border-left: 1px solid #DDD;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
