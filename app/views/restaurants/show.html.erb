@@ -9,6 +9,20 @@
     <p>address: <%= @restaurant.address %></p>
     <p>capacity: <%= @restaurant.capacity %></p>
   </div>
+  <% if policy(@restaurant).update? %>
+    <h2>Reservations</h2>
+    <ul>
+      <% @restaurant.reservations.each do |reservation| %>
+        <p>
+          <i class="fas fa-star"></i> Name: <%= reservation.user.first_name %>
+          <i class="far fa-calendar-alt"></i>
+          <%= reservation.time.to_s.slice(5,5) %>
+          <i class="far fa-clock"></i> <%= reservation.time.to_s.slice(11,5)%>
+          <i class="fas fa-user-friends"></i> <%= reservation.number_of_people %>
+        </p>
+      </ul>
+    <% end %>
+  <% end %>
   <div class="">
     <div>
       <h5><u>Description</u></h5>
