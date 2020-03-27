@@ -7,7 +7,7 @@
   <% @restaurants.each do |restaurant| %>
       <%= link_to restaurant_path(restaurant) do %>
         <div class="card-shadow card-restaurant card-grow w-100">
-          <% if image_tag(restaurant.image)  %>
+          <% if defined?(restaurant.image) && restaurant.image  %>
             <%= image_tag(restaurant.image) %>
           <% end %>
           <div class="card-restaurant-infos">
